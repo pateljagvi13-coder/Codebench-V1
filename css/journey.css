@@ -1,0 +1,466 @@
+/* ==========================================
+   1. FONTS & VARIABLES
+========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* Color Palette */
+    --bg: #FFF8F3;
+    --surface: #FFFFFF;
+    --surface-soft: #FFF0EB;
+
+    --rose: #EFA7B8;
+    --pink: #F6C1D1;
+    --gold: #D9B45B;
+    --lavender: #C9B8F5;
+    --sage: #B8D8C0;
+    --blue: #5BA8F0;
+    --purple: #9275E8;
+
+    /* Semantic Theme Aliases */
+    --primary: var(--blue);
+    --secondary: var(--purple);
+    --accent: var(--gold);
+
+    /* Text Colors */
+    --text: #2D252E;
+    --text-muted: #645868;
+    --text-light: #756A78;
+
+    /* Global Tokens */
+    --radius: 24px;
+    --font-main: "Outfit", system-ui, -apple-system, sans-serif;
+}
+
+/* ==========================================
+   2. GLOBAL RESET & BASE TYPOGRAPHY
+========================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+p {
+    font-weight: 400;
+    color: var(--text-light);
+}
+
+/* ==========================================
+   3. HERO SECTION
+========================================== */
+.journey-hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 60px 20px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top left, rgba(239, 167, 184, 0.35), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(217, 180, 91, 0.2), transparent 40%),
+        linear-gradient(135deg, #FFF8F3 0%, #FDF1F7 100%);
+}
+
+.journey-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(217, 180, 91, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(217, 180, 91, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 999px;
+    background: rgba(91, 168, 240, 0.12);
+    border: 1px solid rgba(91, 168, 240, 0.3);
+    color: #2B72B8;
+    font-weight: 700;
+    font-size: clamp(0.75rem, 2vw, 0.85rem);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    line-height: 1.12;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.hero-description {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 36px;
+    max-width: 65ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================
+   4. BUTTON STYLES
+========================================== */
+.hero-btn {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 999px;
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, var(--rose), var(--gold));
+    color: #FFFFFF;
+    box-shadow: 0 10px 25px rgba(239, 167, 184, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(217, 180, 91, 0.4);
+}
+
+/* ==========================================
+   5. TIMELINE CONTAINER & AXIS
+========================================== */
+.timeline {
+    position: relative;
+    width: min(1000px, 90%);
+    margin: 0 auto;
+    padding: 80px 0 120px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--blue), var(--purple), var(--rose));
+    transform: translateX(-50%);
+    border-radius: 999px;
+    box-shadow: 0 0 15px rgba(146, 117, 232, 0.3);
+}
+
+/* ==========================================
+   6. TIMELINE ITEMS & CARDS
+========================================== */
+.timeline-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, var(--gold), var(--rose));
+    border: 3px solid var(--bg);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(217, 180, 91, 0.5);
+    z-index: 3;
+}
+
+.timeline-year {
+    width: 160px;
+    color: var(--purple);
+    font-weight: 800;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    letter-spacing: -0.01em;
+}
+
+.timeline-card {
+    width: 440px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(217, 180, 91, 0.3);
+    border-radius: var(--radius);
+    padding: 36px;
+    box-shadow: 0 15px 35px rgba(80, 50, 60, 0.08);
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(91, 168, 240, 0.5);
+    box-shadow: 0 25px 50px rgba(91, 168, 240, 0.15);
+}
+
+.timeline-icon {
+    font-size: 2.2rem;
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.timeline-card h2 {
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+    line-height: 1.25;
+    margin-bottom: 14px;
+}
+
+.timeline-card p {
+    color: var(--text-light);
+    line-height: 1.75;
+    font-size: 1.025rem;
+}
+
+.journey-image {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease;
+    object-fit: cover;
+}
+
+.timeline-card:hover .journey-image {
+    transform: scale(1.02);
+}
+
+/* ==========================================
+   7. FINAL HIGHLIGHT CARD (CODEBENCH)
+========================================== */
+.codebench-card {
+    background: linear-gradient(135deg, #FFF0EB, #F5EEFF);
+    border: 2px solid rgba(217, 180, 91, 0.45);
+    text-align: center;
+}
+
+.codebench-card h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 16px;
+}
+
+.codebench-card p {
+    margin-bottom: 28px;
+}
+
+/* ==========================================
+   8. RESPONSIVE BREAKPOINTS
+========================================== */
+@media (max-width: 900px) {
+    .timeline {
+        width: 100%;
+        padding: 60px 20px;
+    }
+
+    .timeline-line {
+        left: 20px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 50px 0;
+        padding-left: 50px;
+    }
+
+    .timeline-item::before {
+        left: 20px;
+    }
+
+    .timeline-year {
+        width: auto;
+        margin-bottom: 10px;
+    }
+
+    .timeline-card {
+        width: 100%;
+        padding: 28px;
+    }
+}
+
+/* ==========================================
+   TIMELINE ALTERNATING CARDS LAYOUT
+   ========================================== */
+
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+/* Center vertical line */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* Base item positioning */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1.5rem 2.5rem;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Odd items: Left side */
+.timeline-item:nth-of-type(odd) {
+    left: 0;
+    text-align: right;
+}
+
+/* Even items: Right side */
+.timeline-item:nth-of-type(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Keep text content inside the cards left-aligned for readability */
+.timeline-card {
+    text-align: left;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .timeline-line {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 3rem;
+        padding-right: 1rem;
+        text-align: left !important;
+    }
+}
+
+/* ==========================================
+   MAXIMIZED ALTERNATING TIMELINE CARDS
+   ========================================== */
+
+.timeline {
+    position: relative;
+    max-width: 95%;
+    /* Fills almost the full width of the screen */
+    margin: 0 auto;
+    padding: 3rem 1rem;
+}
+
+/* Center vertical line */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* Tighter horizontal padding for wider cards + extra vertical spacing */
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1rem 0.5rem;
+    /* Minimal side padding to maximize card width */
+    margin-bottom: 3.5rem;
+    /* Generous vertical gap so dates/grades aren't squished */
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* Odd items: Left side */
+.timeline-item:nth-of-type(odd) {
+    left: 0;
+    text-align: right;
+}
+
+/* Even items: Right side */
+.timeline-item:nth-of-type(even) {
+    left: 50%;
+    text-align: left;
+}
+
+/* Ensure card fills the full width of its half */
+.timeline-card {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+/* Extra spacing for year/grade label */
+.timeline-year {
+    margin-bottom: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .timeline {
+        max-width: 100%;
+    }
+
+    .timeline-line {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 3rem;
+        padding-right: 0.5rem;
+        margin-bottom: 2.5rem;
+        text-align: left !important;
+    }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login // CodeBench</title>
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/login.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <header class="navbar">
+
+
+        <a href="index.html" class="logo-text">
+
+            <span>//</span> CODEBENCH
+
+        </a>
+
+
+
+        <a href="index.html" class="btn btn-secondary">
+
+            Return Home
+
+        </a>
+
+
+    </header>
+
+
+
+
+
+
+
+
+    <main class="login-layout">
+
+
+
+
+
+        <section class="login-card soft-panel fade-in">
+
+
+
+            <p class="panel-label">
+
+                CODEBENCH ACADEMY
+
+            </p>
+
+
+
+            <h1>
+
+                Welcome Back
+
+            </h1>
+
+
+
+
+            <p class="login-description">
+
+                Continue your robotics journey and unlock new engineering skills.
+
+            </p>
+
+
+
+
+
+
+
+            <form>
+
+
+
+
+                <label>
+
+                    Email
+
+                </label>
+
+
+                <input id="emailInput" type="email" placeholder="Enter email">
+
+
+
+
+
+
+                <label>
+
+                    Password
+
+                </label>
+
+
+                <input id="passwordInput" type="password" placeholder="Enter password">
+
+
+
+
+
+
+                <button type="button" onclick="loginUser()" class="btn btn-primary">
+
+
+                    Sign In
+
+
+                </button>
+
+
+
+
+
+                <p class="signup-text">
+
+                    New builder?
+
+                    <a href="signup.html">
+
+                        Create Account
+
+                    </a>
+
+
+                </p>
+
+
+
+            </form>
+
+
+
+
+
+
+
+            <div class="login-divider">
+
+                OR
+
+            </div>
+
+
+
+
+
+
+            <button type="button" id="googleLogin" class="btn btn-secondary">
+
+
+                Continue with Google
+
+
+            </button>
+
+
+
+
+
+        </section>
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+    <script type="module" src="js/auth.js"></script>
+
+
+</body>
+
+</html>

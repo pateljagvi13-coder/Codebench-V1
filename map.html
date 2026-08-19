@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CodeBench Robotics Campaign Map">
+
+    <title>Campaign Map // CodeBench</title>
+
+    <link rel="icon" href="assets/favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/map.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         NAVBAR
+    ====================================== -->
+
+    <header class="navbar" role="banner">
+
+        <a href="dashboard.html" class="logo-text">
+            <span>//</span> CODEBENCH
+        </a>
+
+
+        <div class="user-status" aria-live="polite">
+
+            Builder:
+            <span id="userName">
+                Loading...
+            </span>
+
+
+            <div class="xp-pill">
+
+                XP:
+                <span id="navXP">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         APPLICATION LAYOUT
+    ====================================== -->
+
+    <div class="dashboard-layout" id="rootLayout">
+
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+
+        <aside class="sidebar" aria-label="Main Navigation">
+
+            <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Navigation">
+                ☰
+            </button>
+
+
+            <!-- Dashboard -->
+
+            <a href="dashboard.html" class="nav-item">
+
+                <span class="nav-text">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- Campaign Map -->
+
+            <a href="map.html" class="nav-item active" aria-current="page">
+
+                <span class="nav-text">
+                    Campaign Map
+                </span>
+
+            </a>
+
+
+            <!-- Training Lab -->
+
+            <a href="lesson.html" class="nav-item">
+
+                <span class="nav-text">
+                    Training Lab
+                </span>
+
+            </a>
+
+
+            <!-- Robot Garage -->
+
+            <a href="garage.html" class="nav-item">
+
+                <span class="nav-text">
+                    Robot Garage
+                </span>
+
+            </a>
+
+
+            <!-- Reset Profile -->
+
+            <button type="button" class="nav-item btn-danger-link" id="resetNeuralLink">
+
+                <span class="nav-text">
+                    Reset Profile
+                </span>
+
+            </button>
+
+        </aside>
+
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <main class="dashboard-content campaign-page" role="main">
+
+
+            <!-- =====================================
+                 PAGE HEADER
+            ====================================== -->
+
+            <section class="map-header fade-in">
+
+                <div>
+
+                    <span class="panel-label">
+                        CODEBENCH // CAMPAIGN
+                    </span>
+
+
+                    <h1 class="map-title">
+                        Robotics Learning Path
+                    </h1>
+
+
+                    <p class="text-muted">
+                        Build your knowledge from robot foundations
+                        to competition-ready systems.
+                    </p>
+
+                </div>
+
+
+                <div class="campaign-progress-summary">
+
+                    <span>
+                        OVERALL PROGRESS
+                    </span>
+
+                    <strong id="overallProgress">
+                        0%
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 CURRENT MISSION
+            ====================================== -->
+
+            <section class="current-mission-panel">
+
+                <div class="mission-status">
+
+                    <span class="mission-dot"></span>
+
+                    CURRENT MISSION
+
+                </div>
+
+
+                <div class="current-mission-content">
+
+                    <div>
+
+                        <span class="section-label" id="currentLevelTag">
+                            LEVEL 01
+                        </span>
+
+
+                        <h2 id="currentLevelTitle">
+                            Robot Foundations
+                        </h2>
+
+
+                        <p id="currentLevelDescription">
+                            Begin your journey by learning how
+                            an FRC robot works.
+                        </p>
+
+                    </div>
+
+
+                    <button type="button" class="btn btn-primary" id="continueMissionBtn">
+                        Continue Training →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 CAMPAIGN PATH
+            ====================================== -->
+
+            <section class="campaign-section">
+
+                <div class="section-heading">
+
+                    <span>
+                        TRAINING CAMPAIGN
+                    </span>
+
+                    <h2>
+                        Your Engineering Journey
+                    </h2>
+
+                    <p>
+                        Complete each level to unlock the next
+                        stage of your robotics training.
+                    </p>
+
+                </div>
+
+
+                <!--
+                    Levels will eventually be generated
+                    automatically from curriculum.js.
+                -->
+
+                <div class="campaign-path" id="campaignPath">
+
+
+                    <!-- LEVEL 01 -->
+
+                    <article class="campaign-node unlocked" data-level="1">
+
+                        <div class="node-icon">
+                            01
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 01
+                            </span>
+
+
+                            <h3>
+                                Robot Foundations
+                            </h3>
+
+
+                            <p>
+                                Learn what an FRC robot is,
+                                identify its major systems,
+                                and understand how hardware
+                                and software work together.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    0%
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Available
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-primary node-button" data-level-action="1">
+                            Enter Level →
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 02 -->
+
+                    <article class="campaign-node locked" data-level="2">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 02
+                            </span>
+
+
+                            <h3>
+                                Drivetrain Fundamentals
+                            </h3>
+
+
+                            <p>
+                                Explore wheels, motors, gearing,
+                                drivetrain layouts, and robot
+                                movement.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 03 -->
+
+                    <article class="campaign-node locked" data-level="3">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 03
+                            </span>
+
+
+                            <h3>
+                                Robot Electrical Systems
+                            </h3>
+
+
+                            <p>
+                                Follow power through the robot
+                                and learn how CAN communication
+                                connects devices.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 04 -->
+
+                    <article class="campaign-node locked" data-level="4">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 04
+                            </span>
+
+
+                            <h3>
+                                Mechanisms & Motors
+                            </h3>
+
+
+                            <p>
+                                Learn how motors, gearing, belts,
+                                chains, and mechanisms create
+                                robot motion.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 05 -->
+
+                    <article class="campaign-node locked" data-level="5">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 05
+                            </span>
+
+
+                            <h3>
+                                Sensors & Robot Feedback
+                            </h3>
+
+
+                            <p>
+                                Discover how sensors measure
+                                movement and the robot's
+                                environment.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 06 -->
+
+                    <article class="campaign-node locked" data-level="6">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 06
+                            </span>
+
+
+                            <h3>
+                                Robot Programming Fundamentals
+                            </h3>
+
+
+                            <p>
+                                Build the programming foundation
+                                needed to control a robot.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 07 -->
+
+                    <article class="campaign-node locked" data-level="7">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 07
+                            </span>
+
+
+                            <h3>
+                                Command-Based Architecture
+                            </h3>
+
+
+                            <p>
+                                Learn how larger FRC programs
+                                organize commands, subsystems,
+                                and triggers.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 08 -->
+
+                    <article class="campaign-node locked" data-level="8">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 08
+                            </span>
+
+
+                            <h3>
+                                Feedback, Control & Autonomous
+                            </h3>
+
+
+                            <p>
+                                Connect sensors, PID control,
+                                paths, and autonomous routines.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 09 -->
+
+                    <article class="campaign-node locked" data-level="9">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 09
+                            </span>
+
+
+                            <h3>
+                                Vision & Field Awareness
+                            </h3>
+
+
+                            <p>
+                                Learn how cameras, AprilTags,
+                                and vision systems help robots
+                                understand the field.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+
+
+                    <div class="path-line"></div>
+
+
+
+                    <!-- LEVEL 10 -->
+
+                    <article class="campaign-node locked" data-level="10">
+
+                        <div class="node-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="node-content">
+
+                            <span class="node-tag">
+                                LEVEL 10
+                            </span>
+
+
+                            <h3>
+                                Competition Readiness
+                            </h3>
+
+
+                            <p>
+                                Bring everything together and
+                                prepare a robot for competition.
+                            </p>
+
+
+                            <div class="node-progress">
+
+                                <div class="node-progress-bar">
+
+                                    <div class="node-progress-fill" style="width: 0%;"></div>
+
+                                </div>
+
+                                <span>
+                                    Locked
+                                </span>
+
+                            </div>
+
+
+                            <span class="node-status">
+                                Locked
+                            </span>
+
+                        </div>
+
+
+                        <button type="button" class="btn btn-secondary node-button" disabled>
+                            Locked
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="js/curriculum.js"></script>
+
+    <script src="js/map.js"></script>
+
+    <script src="js/sidebar.js"></script>
+
+    <script src="js/xp.js"></script>
+
+    <script type="module" src="js/profile.js"></script>
+
+
+</body>
+
+</html>

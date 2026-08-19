@@ -1,0 +1,1732 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap');
+
+
+/* =========================================================
+   CODEBENCH GARAGE
+   Soft robotics • Pink core • Cream workspace
+========================================================= */
+
+:root {
+
+    /* ---------- BACKGROUND ---------- */
+
+    --cream: #faf7f4;
+    --cream-deep: #f2ece8;
+    --surface: #fffdfb;
+    --surface-soft: #f8f2f0;
+
+
+    /* ---------- CODEBENCH PINK CORE ---------- */
+
+    --pink: #e3a3b7;
+    --pink-dark: #c77f98;
+    --pink-soft: #f5dce4;
+    --pink-pale: #fbecf0;
+
+
+    /* ---------- SECONDARY COLORS ---------- */
+
+    --lavender: #afa2c9;
+    --lavender-dark: #8f82ac;
+    --lavender-soft: #e8e2f1;
+
+    --sage: #a5b9a4;
+    --sage-dark: #7f997f;
+    --sage-soft: #e1e9df;
+
+    --gold: #d5bd7b;
+    --gold-dark: #a58e50;
+    --gold-soft: #eee6cd;
+
+
+    /* ---------- TEXT ---------- */
+
+    --text: #403a40;
+    --text-soft: #696269;
+    --muted: #969097;
+    --muted-light: #aaa3aa;
+
+
+    /* ---------- BORDERS / SHADOWS ---------- */
+
+    --border: #e9e0e1;
+    --border-soft: #eee7e7;
+
+    --shadow-small:
+        0 5px 18px rgba(83, 66, 74, .055);
+
+    --shadow-medium:
+        0 14px 35px rgba(83, 66, 74, .075);
+
+    --shadow-large:
+        0 25px 65px rgba(83, 66, 74, .10);
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+body {
+
+    overflow: hidden;
+
+    font-family: "DM Sans", sans-serif;
+
+    color: var(--text);
+
+    background: var(--cream);
+
+    -webkit-font-smoothing: antialiased;
+
+}
+
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.garage-header {
+
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 30px;
+
+    position: relative;
+    z-index: 50;
+
+    background: rgba(255, 253, 251, .88);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+}
+
+
+/* ---------- BRAND ---------- */
+
+.brand {
+
+    width: 270px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+}
+
+
+.brand-mark {
+
+    width: 37px;
+    height: 37px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--pink);
+
+    color: #fff;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    box-shadow:
+        0 5px 14px rgba(199, 127, 152, .18);
+
+}
+
+
+.brand-name {
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    letter-spacing: -.2px;
+
+}
+
+
+.brand-subtitle {
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    letter-spacing: 1.35px;
+
+}
+
+
+/* ---------- PAGE TITLE ---------- */
+
+.page-title {
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--text);
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.page-title span {
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    box-shadow:
+        0 0 0 4px var(--pink-pale);
+
+}
+
+
+/* ---------- HEADER ACTIONS ---------- */
+
+.header-right {
+
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+}
+
+
+.help-button {
+
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: var(--surface);
+
+    color: var(--text-soft);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+
+}
+
+
+.help-button:hover {
+
+    transform: translateY(-1px);
+
+    border-color: var(--pink);
+
+    background: var(--pink-pale);
+
+}
+
+
+.avatar {
+
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--lavender-soft);
+
+    color: var(--lavender-dark);
+
+    font-size: 10px;
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.garage-layout {
+
+    height: calc(100vh - 76px);
+
+    display: grid;
+
+    grid-template-columns:
+        265px minmax(500px, 1fr) 305px;
+
+}
+
+
+/* =========================================================
+   LEFT EXPLORER
+========================================================= */
+
+.explorer {
+
+    min-width: 0;
+
+    padding: 28px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        linear-gradient(180deg,
+            rgba(255, 253, 251, .72),
+            rgba(250, 247, 244, .88));
+
+    border-right: 1px solid var(--border);
+
+}
+
+
+/* ---------- EXPLORER HEADER ---------- */
+
+.explorer-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 0 7px;
+
+}
+
+
+.explorer-header small {
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.explorer-header h1 {
+
+    margin: 3px 0 0;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 22px;
+    font-weight: 600;
+
+    letter-spacing: -.3px;
+
+}
+
+
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    margin-top: 7px;
+
+    border-radius: 50%;
+
+    background: var(--sage);
+
+    box-shadow:
+        0 0 0 4px var(--sage-soft);
+
+}
+
+
+/* =========================================================
+   ROBOT CARD
+========================================================= */
+
+.robot-card {
+
+    margin: 22px 0;
+
+    padding: 13px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    background: rgba(255, 253, 251, .9);
+
+    border: 1px solid var(--border);
+
+    border-radius: 16px;
+
+    box-shadow: var(--shadow-small);
+
+}
+
+
+.robot-card-icon {
+
+    width: 39px;
+    height: 39px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--pink-soft);
+
+    font-size: 17px;
+
+}
+
+
+.robot-card strong {
+
+    display: block;
+
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+.robot-card span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+
+/* =========================================================
+   SYSTEM LIST
+========================================================= */
+
+.category-title {
+
+    padding: 0 8px;
+
+    margin-bottom: 7px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 1.45px;
+
+}
+
+
+.part {
+
+    width: 100%;
+
+    min-height: 56px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 8px;
+
+    border: 0;
+
+    border-radius: 14px;
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.part:hover {
+
+    background: rgba(255, 253, 251, .75);
+
+    transform: translateX(2px);
+
+}
+
+
+.part.active {
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-small);
+
+}
+
+
+.part-icon {
+
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    font-size: 15px;
+
+}
+
+
+.part-icon.orange {
+
+    background: var(--pink-soft);
+
+    color: var(--pink-dark);
+
+}
+
+
+.part-icon.purple {
+
+    background: var(--lavender-soft);
+
+    color: var(--lavender-dark);
+
+}
+
+
+.part-icon.sage {
+
+    background: var(--sage-soft);
+
+    color: var(--sage-dark);
+
+}
+
+
+.part-icon.gold {
+
+    background: var(--gold-soft);
+
+    color: var(--gold-dark);
+
+}
+
+
+.part>div:nth-child(2) {
+
+    flex: 1;
+
+}
+
+
+.part strong {
+
+    display: block;
+
+    font-size: 11px;
+    font-weight: 600;
+
+}
+
+
+.part small {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+}
+
+
+.part b {
+
+    color: var(--muted-light);
+
+    font-size: 16px;
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-card {
+
+    margin-top: auto;
+
+    padding: 15px;
+
+    border: 1px solid rgba(165, 185, 164, .2);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(135deg,
+            var(--sage-soft),
+            #e8eee6);
+
+}
+
+
+.progress-top {
+
+    display: flex;
+    justify-content: space-between;
+
+    color: var(--sage-dark);
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.progress-top strong {
+
+    font-weight: 700;
+
+}
+
+
+.progress-bar {
+
+    height: 5px;
+
+    margin: 9px 0;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, .72);
+
+}
+
+
+.progress-bar div {
+
+    width: 24%;
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: var(--pink);
+
+}
+
+
+.progress-card p {
+
+    margin: 0;
+
+    color: var(--sage-dark);
+
+    font-size: 9px;
+
+    line-height: 1.55;
+
+}
+
+
+/* =========================================================
+   3D VIEWPORT
+========================================================= */
+
+.viewport {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 42%,
+            #fffefa 0%,
+            #f7f2ed 48%,
+            #eee8e2 100%);
+
+}
+
+
+/* subtle viewport atmosphere */
+
+.viewport::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 50% 48%,
+            rgba(227, 163, 183, .08),
+            transparent 38%);
+
+    z-index: 1;
+
+}
+
+
+/* ---------- TOOLBAR ---------- */
+
+.viewport-toolbar {
+
+    position: absolute;
+
+    top: 19px;
+    left: 20px;
+    right: 20px;
+
+    z-index: 30;
+
+    display: flex;
+    justify-content: space-between;
+
+    pointer-events: none;
+
+}
+
+
+.assembly-status {
+
+    padding: 9px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 30px;
+
+    background: rgba(255, 253, 251, .78);
+
+    color: var(--text-soft);
+
+    font-size: 8px;
+
+    letter-spacing: 1.15px;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow: var(--shadow-small);
+
+}
+
+
+.assembly-status span {
+
+    display: inline-block;
+
+    width: 6px;
+    height: 6px;
+
+    margin-right: 6px;
+
+    border-radius: 50%;
+
+    background: var(--sage);
+
+    box-shadow:
+        0 0 0 3px var(--sage-soft);
+
+}
+
+
+.camera-buttons {
+
+    display: flex;
+
+    gap: 5px;
+
+    pointer-events: auto;
+
+}
+
+
+.camera-buttons button {
+
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    background: rgba(255, 253, 251, .82);
+
+    color: var(--text-soft);
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease;
+
+}
+
+
+.camera-buttons button:hover {
+
+    transform: translateY(-1px);
+
+    background: var(--pink-pale);
+
+    color: var(--pink-dark);
+
+}
+
+
+/* ---------- THREE.JS ---------- */
+
+#robotCanvas {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+}
+
+
+#robotCanvas canvas {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: grab;
+
+}
+
+
+#robotCanvas canvas:active {
+
+    cursor: grabbing;
+
+}
+
+
+/* ---------- VIEWPORT HINTS ---------- */
+
+.viewport-help {
+
+    position: absolute;
+
+    z-index: 25;
+
+    left: 50%;
+    bottom: 19px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 6px;
+
+}
+
+
+.viewport-help div {
+
+    padding: 7px 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: rgba(255, 253, 251, .68);
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    white-space: nowrap;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.viewport-help strong {
+
+    color: var(--text-soft);
+
+    font-weight: 600;
+
+}
+
+
+/* ---------- ORBIT LABEL ---------- */
+
+.view-label {
+
+    position: absolute;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 25;
+
+    padding: 8px 11px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: rgba(255, 253, 251, .68);
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 1px;
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.view-label span {
+
+    color: var(--pink-dark);
+
+}
+
+
+/* =========================================================
+   COMPONENT PANEL
+========================================================= */
+
+.component-panel {
+
+    padding: 30px 24px;
+
+    border-left: 1px solid var(--border);
+
+    background: rgba(255, 253, 251, .92);
+
+}
+
+
+/* ---------- LABEL ---------- */
+
+.selected {
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 1.4px;
+
+}
+
+
+/* ---------- COMPONENT ICON ---------- */
+
+.component-symbol {
+
+    width: 53px;
+    height: 53px;
+
+    margin-top: 20px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(227, 163, 183, .25);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(145deg,
+            var(--pink-soft),
+            var(--pink-pale));
+
+    color: var(--pink-dark);
+
+    font-size: 22px;
+
+    box-shadow:
+        0 8px 20px rgba(199, 127, 152, .08);
+
+}
+
+
+/* ---------- TITLE ---------- */
+
+.component-panel h2 {
+
+    margin: 14px 0 7px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 27px;
+    font-weight: 600;
+
+    letter-spacing: -.5px;
+
+}
+
+
+.component-panel>p {
+
+    max-width: 250px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+
+    margin-top: 22px;
+
+}
+
+
+.details div {
+
+    padding: 12px;
+
+    border: 1px solid var(--border-soft);
+
+    border-radius: 13px;
+
+    background: var(--surface-soft);
+
+}
+
+
+.details span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.details strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--text-soft);
+
+    font-size: 8px;
+
+    letter-spacing: .3px;
+
+}
+
+
+/* =========================================================
+   LESSON CARD
+========================================================= */
+
+.lesson-card {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 17px;
+
+    padding: 14px;
+
+    border: 1px solid rgba(175, 162, 201, .18);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(145deg,
+            var(--lavender-soft),
+            #ede8f4);
+
+}
+
+
+.spark {
+
+    flex-shrink: 0;
+
+    color: var(--lavender-dark);
+
+    font-size: 18px;
+
+}
+
+
+.lesson-card strong {
+
+    color: #655d76;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+}
+
+
+.lesson-card p {
+
+    margin: 4px 0 0;
+
+    color: #7d758a;
+
+    font-size: 8px;
+
+    line-height: 1.55;
+
+}
+
+
+/* =========================================================
+   LEARN BUTTON
+========================================================= */
+
+.learn-button {
+
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 13px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(135deg,
+            var(--pink),
+            var(--pink-dark));
+
+    color: white;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px rgba(199, 127, 152, .16);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.learn-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 28px rgba(199, 127, 152, .22);
+
+}
+
+
+.learn-button span {
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================================
+   XP
+========================================================= */
+
+.xp {
+
+    margin-top: 10px;
+
+    padding: 11px 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid rgba(213, 189, 123, .16);
+
+    border-radius: 13px;
+
+    background: var(--gold-soft);
+
+}
+
+
+.xp small {
+
+    display: block;
+
+    color: var(--gold-dark);
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.xp strong {
+
+    display: block;
+
+    margin-top: 3px;
+
+    color: #806e43;
+
+    font-size: 10px;
+
+}
+
+
+.xp>span {
+
+    color: var(--gold);
+
+    font-size: 19px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .garage-layout {
+
+        grid-template-columns:
+            225px minmax(450px, 1fr) 270px;
+
+    }
+
+}
+
+
+@media (max-width: 850px) {
+
+    .garage-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .explorer,
+    .component-panel {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-height: 700px) {
+
+    .explorer,
+    .component-panel {
+
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+    }
+
+    .robot-card {
+
+        margin: 14px 0;
+
+    }
+
+}
+
+/* =========================================================
+   COMPONENT EXPLORER MODAL
+========================================================= */
+
+.component-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.component-modal.open {
+
+    display: flex;
+
+}
+
+
+.modal-backdrop {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(55, 45, 52, .22);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+}
+
+
+.component-modal-card {
+
+    position: relative;
+
+    width: min(460px, calc(100vw - 40px));
+
+    padding: 30px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-large);
+
+    animation: modalIn .25s ease;
+
+}
+
+
+@keyframes modalIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(12px) scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0) scale(1);
+
+    }
+
+}
+
+
+/* ---------- CLOSE ---------- */
+
+.modal-close {
+
+    position: absolute;
+
+    top: 17px;
+    right: 17px;
+
+    width: 32px;
+    height: 32px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background: var(--cream);
+
+    color: var(--muted);
+
+    font-size: 19px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+
+.modal-close:hover {
+
+    background: var(--pink-soft);
+
+    color: var(--pink-dark);
+
+    transform: rotate(8deg);
+
+}
+
+
+/* ---------- ICON ---------- */
+
+.modal-icon {
+
+    width: 54px;
+    height: 54px;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 16px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(145deg,
+            var(--pink-soft),
+            var(--pink-pale));
+
+    color: var(--pink-dark);
+
+    font-size: 22px;
+
+}
+
+
+/* ---------- TEXT ---------- */
+
+.modal-eyebrow {
+
+    color: var(--pink-dark);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.component-modal-card h2 {
+
+    margin: 7px 0 8px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 30px;
+
+    letter-spacing: -.5px;
+
+}
+
+
+.component-modal-card>p {
+
+    max-width: 390px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ---------- META ---------- */
+
+.modal-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+
+    margin-top: 20px;
+
+}
+
+
+.modal-info {
+
+    padding: 12px;
+
+    border: 1px solid var(--border-soft);
+
+    border-radius: 13px;
+
+    background: var(--surface-soft);
+
+}
+
+
+.modal-info span {
+
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    letter-spacing: 1px;
+
+}
+
+
+.modal-info strong {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: var(--text-soft);
+
+    font-size: 9px;
+
+}
+
+
+/* ---------- LEARNING ---------- */
+
+.explore-section {
+
+    margin-top: 22px;
+
+}
+
+
+.section-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    letter-spacing: 1.2px;
+
+}
+
+
+.learning-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid var(--border-soft);
+
+    color: var(--text-soft);
+
+    font-size: 10px;
+
+}
+
+
+.learning-item:last-child {
+
+    border-bottom: 0;
+
+}
+
+
+.learning-item span {
+
+    width: 24px;
+    height: 24px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 8px;
+
+    background: var(--pink-pale);
+
+    color: var(--pink-dark);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+}
+
+
+/* ---------- BUTTON ---------- */
+
+.start-learning {
+
+    width: 100%;
+
+    margin-top: 19px;
+
+    padding: 14px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    border: 0;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(135deg,
+            var(--pink),
+            var(--pink-dark));
+
+    color: white;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 9px 22px rgba(199, 127, 152, .16);
+
+    transition: .2s ease;
+
+}
+
+
+.start-learning:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 27px rgba(199, 127, 152, .22);
+
+}
+
+
+.start-learning span {
+
+    font-size: 16px;
+
+}

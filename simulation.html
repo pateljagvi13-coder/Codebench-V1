@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Robot Lab | CodeBench</title>
+
+    <link rel="stylesheet" href="css/simulation.css">
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-mark">C</div>
+
+                <div>
+                    <strong>CodeBench</strong>
+                    <span>Robot Lab</span>
+                </div>
+            </div>
+
+
+            <div class="module-label">
+                MODULE 101
+            </div>
+
+            <h2 class="module-title">
+                Robot Anatomy
+            </h2>
+
+
+            <nav class="lesson-nav">
+
+                <button class="lesson completed">
+                    <span class="lesson-number">01</span>
+                    <span>The Big Picture</span>
+                    <span class="lesson-check">✓</span>
+                </button>
+
+                <button class="lesson active">
+                    <span class="lesson-number">02</span>
+                    <span>Mechanical Systems</span>
+                    <span class="lesson-dot"></span>
+                </button>
+
+                <button class="lesson">
+                    <span class="lesson-number">03</span>
+                    <span>Electrical Systems</span>
+                </button>
+
+                <button class="lesson">
+                    <span class="lesson-number">04</span>
+                    <span>Control Systems</span>
+                </button>
+
+                <button class="lesson">
+                    <span class="lesson-number">05</span>
+                    <span>Software</span>
+                </button>
+
+                <button class="lesson">
+                    <span class="lesson-number">06</span>
+                    <span>Putting It Together</span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="xp-mini">
+
+                    <div class="xp-header">
+                        <span>Your Progress</span>
+                        <strong id="xpValue">250 XP</strong>
+                    </div>
+
+                    <div class="xp-bar">
+                        <div class="xp-fill" id="xpFill"></div>
+                    </div>
+
+                    <small>Level 3 Engineer</small>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+         MAIN AREA
+    ========================== -->
+
+        <main class="main">
+
+            <!-- TOP BAR -->
+
+            <header class="topbar">
+
+                <div class="breadcrumb">
+                    <span>MOD 101</span>
+                    <span>/</span>
+                    <strong>Robot Lab</strong>
+                </div>
+
+                <div class="online-status">
+                    <span></span>
+                    ROBOT ONLINE
+                </div>
+
+            </header>
+
+
+            <!-- PAGE CONTENT -->
+
+            <section class="content">
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            🧪 INTERACTIVE SIMULATION
+                        </p>
+
+                        <h1>
+                            Robot Lab
+                        </h1>
+
+                        <p>
+                            Explore the robot and identify its major systems.
+                        </p>
+
+                    </div>
+
+                    <div class="lab-badge">
+                        MOD 101.2
+                    </div>
+
+                </div>
+
+
+                <!-- SIMULATION GRID -->
+
+                <div class="simulation-grid">
+
+
+                    <!-- =====================
+                     FIELD
+                ====================== -->
+
+                    <section class="field-card">
+
+                        <div class="card-top">
+
+                            <div>
+                                <span class="card-label">
+                                    SIMULATION
+                                </span>
+
+                                <h2>
+                                    Robot Field
+                                </h2>
+                            </div>
+
+                            <button class="reset-btn" id="resetRobot">
+                                ↻ Reset
+                            </button>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <div class="field-grid"></div>
+
+
+                            <!-- ROBOT -->
+
+                            <div class="robot" id="robot">
+
+                                <!-- CAMERA -->
+
+                                <button class="robot-part camera" data-part="camera" title="Camera">
+                                    <span>●</span>
+                                </button>
+
+
+                                <!-- MAIN FRAME -->
+
+                                <button class="robot-part frame" data-part="frame" title="Robot Frame">
+                                    <span>FRAME</span>
+                                </button>
+
+
+                                <!-- BATTERY -->
+
+                                <button class="robot-part battery" data-part="battery" title="Battery">
+                                    🔋
+                                </button>
+
+
+                                <!-- WHEELS -->
+
+                                <button class="robot-part wheel wheel-fl" data-part="drivetrain"></button>
+
+                                <button class="robot-part wheel wheel-fr" data-part="drivetrain"></button>
+
+                                <button class="robot-part wheel wheel-bl" data-part="drivetrain"></button>
+
+                                <button class="robot-part wheel wheel-br" data-part="drivetrain"></button>
+
+
+                                <!-- RIO -->
+
+                                <button class="robot-part rio" data-part="rio">
+                                    RIO
+                                </button>
+
+                            </div>
+
+
+                            <!-- FIELD LABEL -->
+
+                            <div class="field-direction">
+                                FRONT ↑
+                            </div>
+
+                        </div>
+
+
+                        <!-- DRIVE CONTROLS -->
+
+                        <div class="controls">
+
+                            <div class="control-title">
+                                <span>🎮</span>
+                                Driver Controls
+                            </div>
+
+
+                            <div class="control-layout">
+
+                                <div class="dpad">
+
+                                    <button class="control-btn up" data-direction="up">
+                                        ↑
+                                    </button>
+
+                                    <button class="control-btn left" data-direction="left">
+                                        ←
+                                    </button>
+
+                                    <button class="control-btn center">
+                                        ●
+                                    </button>
+
+                                    <button class="control-btn right" data-direction="right">
+                                        →
+                                    </button>
+
+                                    <button class="control-btn down" data-direction="down">
+                                        ↓
+                                    </button>
+
+                                </div>
+
+
+                                <div class="speed-control">
+
+                                    <div class="speed-header">
+                                        <span>Drive Speed</span>
+                                        <strong id="speedValue">50%</strong>
+                                    </div>
+
+                                    <input type="range" id="speedSlider" min="10" max="100" value="50">
+
+                                </div>
+
+
+                                <div class="action-controls">
+
+                                    <button class="action-btn" id="runBtn">
+                                        ▶ Run
+                                    </button>
+
+                                    <button class="action-btn secondary" id="stopBtn">
+                                        ■ Stop
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =====================
+                     ROBOT STATUS
+                ====================== -->
+
+                    <aside class="status-panel">
+
+                        <div class="status-header">
+
+                            <div>
+                                <span class="card-label">
+                                    SYSTEM
+                                </span>
+
+                                <h2>
+                                    Robot Status
+                                </h2>
+                            </div>
+
+                            <div class="status-light">
+                                <span></span>
+                                ONLINE
+                            </div>
+
+                        </div>
+
+
+                        <!-- BATTERY -->
+
+                        <div class="status-section">
+
+                            <div class="status-title">
+                                <span>🔋 Battery</span>
+                                <strong id="batteryPercent">
+                                    96%
+                                </strong>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-fill battery-fill" id="batteryBar"></div>
+                            </div>
+
+                            <small id="voltage">
+                                12.4 V
+                            </small>
+
+                        </div>
+
+
+                        <!-- MOTORS -->
+
+                        <div class="status-section">
+
+                            <div class="status-title">
+                                <span>⚙ Motors</span>
+                                <strong>4 / 4</strong>
+                            </div>
+
+                            <div class="status-list">
+
+                                <div>
+                                    FL Drive
+                                    <span>● ONLINE</span>
+                                </div>
+
+                                <div>
+                                    FR Drive
+                                    <span>● ONLINE</span>
+                                </div>
+
+                                <div>
+                                    BL Drive
+                                    <span>● ONLINE</span>
+                                </div>
+
+                                <div>
+                                    BR Drive
+                                    <span>● ONLINE</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SENSORS -->
+
+                        <div class="status-section">
+
+                            <div class="status-title">
+                                <span>📡 Sensors</span>
+                                <strong>4 / 4</strong>
+                            </div>
+
+                            <div class="sensor-grid">
+
+                                <div>
+                                    <span>●</span>
+                                    Gyro
+                                </div>
+
+                                <div>
+                                    <span>●</span>
+                                    Encoder
+                                </div>
+
+                                <div>
+                                    <span>●</span>
+                                    Camera
+                                </div>
+
+                                <div>
+                                    <span>●</span>
+                                    Distance
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SYSTEM -->
+
+                        <div class="status-section">
+
+                            <div class="status-title">
+                                <span>🧠 Control System</span>
+                            </div>
+
+                            <div class="system-item">
+                                RoboRIO
+                                <span class="healthy">HEALTHY</span>
+                            </div>
+
+                            <div class="system-item">
+                                CAN Network
+                                <span class="healthy">HEALTHY</span>
+                            </div>
+
+                        </div>
+
+
+                        <!-- SELECTED PART -->
+
+                        <div class="selected-part" id="selectedPart">
+
+                            <span class="selected-icon">
+                                🤖
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Select a robot component
+                                </strong>
+
+                                <p>
+                                    Click a component on the robot to inspect it.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+
+                <!-- =========================
+                 ENGINEERING CHALLENGE
+            ========================== -->
+
+                <section class="challenge-card">
+
+                    <div class="challenge-icon">
+                        🧪
+                    </div>
+
+
+                    <div class="challenge-content">
+
+                        <span class="card-label">
+                            ENGINEERING CHALLENGE
+                        </span>
+
+                        <h2>
+                            Identify the Robot
+                        </h2>
+
+                        <p>
+                            Find the major systems of the robot.
+                            Click each component to inspect it.
+                        </p>
+
+
+                        <div class="challenge-items">
+
+                            <button class="challenge-item" data-target="battery">
+                                <span>🔋</span>
+                                Battery
+                                <strong>○</strong>
+                            </button>
+
+                            <button class="challenge-item" data-target="drivetrain">
+                                <span>⚙</span>
+                                Drivetrain
+                                <strong>○</strong>
+                            </button>
+
+                            <button class="challenge-item" data-target="rio">
+                                <span>🧠</span>
+                                RoboRIO
+                                <strong>○</strong>
+                            </button>
+
+                            <button class="challenge-item" data-target="camera">
+                                <span>📷</span>
+                                Sensors
+                                <strong>○</strong>
+                            </button>
+
+                        </div>
+
+
+                        <button class="check-btn" id="checkChallenge">
+                            Check System
+                        </button>
+
+                    </div>
+
+
+                    <div class="challenge-result" id="challengeResult">
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- COMPONENT POPUP -->
+
+    <div class="component-popup" id="componentPopup">
+
+        <button class="popup-close" id="closePopup">
+            ×
+        </button>
+
+        <div class="popup-icon" id="popupIcon">
+            🤖
+        </div>
+
+        <span class="popup-label">
+            ROBOT COMPONENT
+        </span>
+
+        <h2 id="popupTitle">
+            Component
+        </h2>
+
+        <p id="popupDescription">
+            Description
+        </p>
+
+        <div class="popup-info">
+
+            <div>
+                <span>STATUS</span>
+                <strong>● CONNECTED</strong>
+            </div>
+
+            <div>
+                <span>SYSTEM</span>
+                <strong id="popupSystem">
+                    Robot
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/simulation.js"></script>
+
+</body>
+
+</html>

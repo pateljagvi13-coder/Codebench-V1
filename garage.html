@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Garage // CodeBench</title>
+
+    <link rel="stylesheet" href="css/garage.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+
+<body>
+
+    <header class="garage-header">
+
+        <div class="brand">
+            <div class="brand-wordmark">
+                CODEBENCH <span>//</span>
+            </div>
+        </div>
+
+        <div class="page-title">
+            <span></span>
+            GARAGE
+        </div>
+
+        <div class="header-right">
+            <button class="help-button">?</button>
+            <div class="avatar">CB</div>
+        </div>
+
+    </header>
+
+
+    <main class="garage-layout">
+
+
+        <!-- =========================
+         ROBOT EXPLORER
+    ========================== -->
+
+        <aside class="explorer">
+
+            <div class="explorer-header">
+                <div>
+                    <small>ROBOT</small>
+                    <h1>Explorer</h1>
+                </div>
+
+                <div class="status-dot"></div>
+            </div>
+
+
+            <div class="robot-card">
+
+                <div class="robot-card-icon">🤖</div>
+
+                <div>
+                    <strong>Competition Robot</strong>
+                    <span>3D Assembly</span>
+                </div>
+
+            </div>
+
+
+            <div class="category-title">
+                SYSTEMS
+            </div>
+
+
+            <button class="part active" data-part="drivetrain">
+
+                <div class="part-icon orange">⚙</div>
+
+                <div>
+                    <strong>Drivetrain</strong>
+                    <small>Movement system</small>
+                </div>
+
+                <b>›</b>
+
+            </button>
+
+
+            <button class="part" data-part="intake">
+
+                <div class="part-icon purple">◇</div>
+
+                <div>
+                    <strong>Intake</strong>
+                    <small>Game piece system</small>
+                </div>
+
+                <b>›</b>
+
+            </button>
+
+
+            <button class="part" data-part="elevator">
+
+                <div class="part-icon sage">△</div>
+
+                <div>
+                    <strong>Elevator</strong>
+                    <small>Vertical movement</small>
+                </div>
+
+                <b>›</b>
+
+            </button>
+
+
+            <button class="part" data-part="sensors">
+
+                <div class="part-icon gold">◉</div>
+
+                <div>
+                    <strong>Sensors</strong>
+                    <small>Robot awareness</small>
+                </div>
+
+                <b>›</b>
+
+            </button>
+
+
+            <div class="progress-card">
+
+                <div class="progress-top">
+                    <span>GARAGE PROGRESS</span>
+                    <strong>24%</strong>
+                </div>
+
+                <div class="progress-bar">
+                    <div></div>
+                </div>
+
+                <p>
+                    Explore the robot to unlock new lessons.
+                </p>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =========================
+         3D VIEWPORT
+    ========================== -->
+
+        <section class="viewport">
+
+            <div class="viewport-toolbar">
+
+                <div class="assembly-status">
+                    <span></span>
+                    LIVE 3D ASSEMBLY
+                </div>
+
+                <div class="camera-buttons">
+
+                    <button id="resetCamera">⌂</button>
+                    <button id="frontCamera">▣</button>
+
+                </div>
+
+            </div>
+
+
+            <div id="robotCanvas"></div>
+
+
+            <div class="viewport-help">
+
+                <div>
+                    <strong>Drag</strong>
+                    Orbit
+                </div>
+
+                <div>
+                    <strong>Scroll</strong>
+                    Zoom
+                </div>
+
+                <div>
+                    <strong>Right drag</strong>
+                    Pan
+                </div>
+
+            </div>
+
+
+            <div class="view-label">
+                <span>◉</span>
+                ORBIT VIEW
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+         COMPONENT INFO
+    ========================== -->
+
+        <aside class="component-panel">
+
+            <small class="selected">
+                SELECTED COMPONENT
+            </small>
+
+
+            <div class="component-symbol">
+                ⚙
+            </div>
+
+
+            <h2 id="componentTitle">
+                Drivetrain
+            </h2>
+
+
+            <p id="componentDescription">
+                The drivetrain is what allows the robot to move around
+                the field.
+            </p>
+
+
+            <div class="details">
+
+                <div>
+                    <span>SYSTEM</span>
+                    <strong id="componentSystem">
+                        DRIVETRAIN
+                    </strong>
+                </div>
+
+                <div>
+                    <span>ROLE</span>
+                    <strong id="componentRole">
+                        MOVEMENT
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="lesson-card">
+
+                <div class="spark">✦</div>
+
+                <div>
+                    <strong>Ready to learn?</strong>
+
+                    <p>
+                        Learn what this system does,
+                        how it works, and how code controls it.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <button class="learn-button">
+
+                Explore Component
+
+                <span>→</span>
+
+            </button>
+
+
+            <div class="xp">
+
+                <div>
+                    <small>REWARD</small>
+                    <strong>+10 XP</strong>
+                </div>
+
+                <span>✦</span>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <!-- =========================
+     COMPONENT EXPLORER MODAL
+========================== -->
+
+    <div class="component-modal" id="componentModal">
+
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+
+        <div class="component-modal-card">
+
+            <button class="modal-close" id="closeComponent">
+                ×
+            </button>
+
+            <div class="modal-icon" id="modalIcon">
+                ⚙
+            </div>
+
+            <span class="modal-eyebrow">
+                COMPONENT EXPLORER
+            </span>
+
+            <h2 id="modalTitle">
+                Drivetrain
+            </h2>
+
+            <p id="modalDescription">
+                The drivetrain is the system that allows the robot
+                to move around the field.
+            </p>
+
+
+            <div class="modal-grid">
+
+                <div class="modal-info">
+
+                    <span>SYSTEM</span>
+
+                    <strong id="modalSystem">
+                        DRIVETRAIN
+                    </strong>
+
+                </div>
+
+
+                <div class="modal-info">
+
+                    <span>ROLE</span>
+
+                    <strong id="modalRole">
+                        MOVEMENT
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="explore-section">
+
+                <span class="section-label">
+                    WHAT YOU'LL LEARN
+                </span>
+
+                <div class="learning-item">
+                    <span>01</span>
+                    How the component works
+                </div>
+
+                <div class="learning-item">
+                    <span>02</span>
+                    What parts make it up
+                </div>
+
+                <div class="learning-item">
+                    <span>03</span>
+                    How software controls it
+                </div>
+
+            </div>
+
+
+            <button type="button" class="start-learning" id="startExploringBtn">
+                <span>Start Exploring</span>
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/garage.js"></script>
+
+
+
+</body>
+
+</html>

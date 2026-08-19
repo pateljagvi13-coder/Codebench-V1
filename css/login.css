@@ -1,0 +1,234 @@
+/* =================================
+   CODEBENCH // LOGIN
+================================= */
+
+
+
+.login-layout {
+
+
+    min-height:
+        calc(100vh - var(--navbar-height));
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    justify-content: center;
+
+
+    padding:
+        var(--space-lg);
+
+
+}
+
+
+
+
+
+.login-card {
+
+
+    width: 100%;
+
+
+    max-width: 450px;
+
+
+    padding: 45px;
+
+
+    text-align: center;
+
+
+}
+
+
+
+
+
+.login-card h1 {
+
+
+    font-size: 2.5rem;
+
+
+    margin-bottom: 15px;
+
+
+}
+
+
+
+
+
+.login-description {
+
+
+    margin-bottom: 35px;
+
+
+}
+
+
+
+
+
+.login-card form {
+
+
+    display: flex;
+
+
+    flex-direction: column;
+
+
+    gap: 12px;
+
+
+    text-align: left;
+
+
+}
+
+
+
+
+
+.login-card label {
+
+
+    font-size: .9rem;
+
+
+    color:
+        var(--text-secondary);
+
+
+}
+
+
+
+
+
+.login-card input {
+
+
+    padding:
+        14px 16px;
+
+
+    border:
+        1px solid var(--border);
+
+
+    border-radius:
+        var(--radius-small);
+
+
+    background:
+        var(--bg-main);
+
+
+    color:
+        var(--text-main);
+
+
+    font-family:
+        "Inter",
+        sans-serif;
+
+
+}
+
+
+
+
+
+.login-card input:focus {
+
+
+    outline: none;
+
+
+    border-color:
+        var(--rose);
+
+
+}
+
+
+
+
+
+.signup-text {
+
+
+    text-align: center;
+
+
+    margin-top: 20px;
+
+
+}
+
+
+
+
+
+.signup-text a {
+
+
+    color:
+        #B77A91;
+
+
+    font-weight: 600;
+
+
+}
+
+
+
+
+
+.login-divider {
+
+
+    margin:
+        25px 0;
+
+
+    color:
+        var(--text-secondary);
+
+
+    font-size: .8rem;
+
+
+    letter-spacing: 2px;
+
+
+}
+
+
+
+
+
+@media(max-width:600px) {
+
+
+    .login-card {
+
+
+        padding: 30px;
+
+
+    }
+
+
+}

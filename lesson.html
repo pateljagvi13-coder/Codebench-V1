@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="CodeBench Interactive Robotics Training">
+
+    <title>Training Lab // CodeBench</title>
+
+    <link rel="icon" href="assets/favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/components.css">
+
+    <link rel="stylesheet" href="css/animations.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         NAVBAR
+    ====================================== -->
+
+    <header class="navbar">
+
+        <a href="dashboard.html" class="logo-text">
+            <span>//</span> CODEBENCH
+        </a>
+
+
+        <div class="user-status" aria-live="polite">
+
+            Builder:
+            <span id="userName">
+                Student
+            </span>
+
+
+            <div class="xp-pill">
+
+                XP:
+                <span id="navXP">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         APP LAYOUT
+    ====================================== -->
+
+    <div class="dashboard-layout" id="rootLayout">
+
+
+        <!-- =====================================
+             SIDEBAR
+        ====================================== -->
+
+        <aside class="sidebar" aria-label="Main Navigation">
+
+            <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">
+                ☰
+            </button>
+
+
+            <a href="dashboard.html" class="nav-item">
+
+                <span class="nav-text">
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a href="map.html" class="nav-item">
+
+                <span class="nav-text">
+                    Campaign Map
+                </span>
+
+            </a>
+
+
+            <a href="lesson.html" class="nav-item active" aria-current="page">
+
+                <span class="nav-text">
+                    Training Lab
+                </span>
+
+            </a>
+
+
+            <a href="garage.html" class="nav-item">
+
+                <span class="nav-text">
+                    Robot Garage
+                </span>
+
+            </a>
+
+
+            <button type="button" class="nav-item btn-danger-link" id="resetNeuralLink" onclick="resetNeuralLink()">
+
+                <span class="nav-text">
+                    Reset Profile
+                </span>
+
+            </button>
+
+        </aside>
+
+
+
+        <!-- =====================================
+             MAIN CONTENT
+        ====================================== -->
+
+        <main class="dashboard-content lesson-page" role="main">
+
+
+            <!-- =====================================
+                 BREADCRUMB
+            ====================================== -->
+
+            <div class="lesson-breadcrumb">
+
+                <span id="levelTag">
+                    LEVEL 01
+                </span>
+
+                <span>
+                    /
+                </span>
+
+                <span>
+                    TRAINING LAB
+                </span>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 LESSON HERO
+            ====================================== -->
+
+            <section class="lesson-hero-new">
+
+
+                <div class="lesson-hero-content">
+
+                    <span class="lesson-tag" id="lessonTag">
+                        LESSON 01
+                    </span>
+
+
+                    <h1 id="lessonTitle">
+                        What Is FRC?
+                    </h1>
+
+
+                    <p id="lessonDescription">
+
+                        Understand the basic idea of
+                        FIRST Robotics Competition and
+                        the role of a competition robot.
+
+                    </p>
+
+                </div>
+
+
+                <div class="lesson-progress-card">
+
+                    <span>
+                        LESSON PROGRESS
+                    </span>
+
+
+                    <strong id="lessonProgress">
+                        1 / 5
+                    </strong>
+
+
+                    <div class="lesson-progress-bar">
+
+                        <div id="lessonProgressFill" style="width: 20%;"></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 WHAT YOU'LL LEARN
+            ====================================== -->
+
+            <section class="learning-panel">
+
+                <div class="section-heading">
+
+                    <span>
+                        BEFORE YOU START
+                    </span>
+
+                    <h2>
+                        What you'll learn
+                    </h2>
+
+                </div>
+
+
+                <div class="learning-goals" id="learningGoals">
+
+                    <!-- Generated by lessons.js -->
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 INTERACTIVE ROBOT
+            ====================================== -->
+
+            <section class="interactive-panel" id="robotExperience">
+
+
+                <div class="interactive-header">
+
+                    <div>
+
+                        <span class="section-label">
+                            INTERACTIVE LAB
+                        </span>
+
+                        <h2>
+                            Explore the Robot
+                        </h2>
+
+                        <p id="interactiveInstruction">
+
+                            Explore the robot components
+                            related to this lesson.
+
+                        </p>
+
+                    </div>
+
+
+                    <button type="button" class="fullscreen-btn" id="fullscreenRobotBtn">
+
+                        ⛶
+                        <span>
+                            Fullscreen
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- ROBOT VIEWPORT -->
+
+                <div class="robot-viewport" id="robotViewport">
+
+                    <div class="robot-grid"></div>
+
+
+                    <!--
+                        TEMPORARY ROBOT
+
+                        We will replace this with the
+                        actual 3D model once the lesson
+                        system is rendering correctly.
+                    -->
+
+                    <div class="robot-placeholder" id="robotModel">
+
+                        <div class="robot-placeholder-frame">
+
+                            <span>
+                                🤖
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            Interactive Robot Model
+                        </p>
+
+
+                        <small>
+                            Model components will appear
+                            here when this lesson requires
+                            them.
+                        </small>
+
+                    </div>
+
+
+                    <button type="button" class="robot-exit-fullscreen" id="exitFullscreenRobot">
+                        ✕
+                    </button>
+
+                </div>
+
+
+                <!-- SELECTED COMPONENT -->
+
+                <div class="component-info" id="componentInfo">
+
+                    <div class="component-icon">
+                        🤖
+                    </div>
+
+
+                    <div>
+
+                        <strong id="componentTitle">
+                            Explore the robot
+                        </strong>
+
+
+                        <p id="componentDescription">
+
+                            Interactive components will
+                            appear here as you explore.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 LESSON CONTENT
+            ====================================== -->
+
+            <section class="lesson-content-panel">
+
+                <div id="lessonContent" class="lesson-content">
+
+                    <!-- Generated from lessons.js -->
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 KEY CONCEPTS
+            ====================================== -->
+
+            <section class="concept-panel">
+
+                <div class="section-heading">
+
+                    <span>
+                        REMEMBER THESE
+                    </span>
+
+                    <h2>
+                        Key concepts
+                    </h2>
+
+                </div>
+
+
+                <div class="concept-list" id="keyConcepts">
+
+                    <!-- Generated from lessons.js -->
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 KNOWLEDGE CHECK
+            ====================================== -->
+
+            <section class="checkpoint-panel">
+
+                <div class="checkpoint-heading">
+
+                    <span>
+                        🧠 KNOWLEDGE CHECK
+                    </span>
+
+                    <h2>
+                        Prove you understand it
+                    </h2>
+
+                </div>
+
+
+                <p id="checkpointQuestion" class="checkpoint-question">
+                    Loading question...
+                </p>
+
+
+                <div class="checkpoint-options" id="checkpointOptions">
+
+                    <!-- Generated from lessons.js -->
+
+                </div>
+
+
+                <div id="checkpointFeedback" class="checkpoint-feedback" aria-live="polite"></div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 COMPLETION
+            ====================================== -->
+
+            <section class="completion-panel" id="completionPanel">
+
+                <div>
+
+                    <span class="section-label">
+                        LESSON STATUS
+                    </span>
+
+                    <h2 id="completionTitle">
+                        Complete the checkpoint
+                    </h2>
+
+                    <p id="completionMessage">
+
+                        Finish the knowledge check to
+                        unlock the next lesson.
+
+                    </p>
+
+                </div>
+
+
+                <button type="button" class="btn btn-primary" id="completeLessonBtn" disabled>
+
+                    Complete Lesson →
+
+                </button>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 NEXT LESSON
+            ====================================== -->
+
+            <section class="next-lesson-panel" id="nextLessonPanel" hidden>
+
+                <div>
+
+                    <span class="section-label">
+                        NEXT UP
+                    </span>
+
+                    <h2 id="nextLessonTitle">
+                        Next Lesson
+                    </h2>
+
+                    <p id="nextLessonDescription">
+                    </p>
+
+                </div>
+
+
+                <button type="button" class="btn btn-primary" id="nextLessonBtn">
+
+                    Continue →
+
+                </button>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="js/lessons.js"></script>
+
+    <script src="js/sidebar.js"></script>
+
+    <script src="js/xp.js"></script>
+
+    <script type="module" src="js/profile.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,344 @@
+/* =========================================
+   CODEBENCH // CAMPAIGN MAP
+========================================= */
+
+
+/* =========================================
+   MAP HEADER
+========================================= */
+
+.map-header {
+    margin-bottom: 42px;
+}
+
+.panel-label {
+    margin-bottom: 8px;
+}
+
+.map-title {
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin-bottom: 12px;
+}
+
+
+/* =========================================
+   CAMPAIGN PATH
+========================================= */
+
+.campaign-path {
+
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+}
+
+
+/* =========================================
+   CAMPAIGN NODE
+========================================= */
+
+.campaign-node {
+
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+
+    padding: 28px 30px;
+
+    background: var(--bg-surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    box-shadow: var(--shadow-soft);
+
+    position: relative;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+
+/* =========================================
+   UNLOCKED NODE
+========================================= */
+
+.campaign-node.unlocked {
+
+    border-color: rgba(169, 201, 167, 0.65);
+
+}
+
+
+.campaign-node.unlocked:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-hover);
+
+}
+
+
+/* =========================================
+   LOCKED NODE
+========================================= */
+
+.campaign-node.locked {
+
+    opacity: 0.58;
+
+}
+
+
+.campaign-node.locked .zone-button {
+
+    cursor: not-allowed;
+
+}
+
+
+/* =========================================
+   NODE ICON
+========================================= */
+
+.node-icon {
+
+    width: 64px;
+    height: 64px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--bg-soft);
+
+    border: 2px solid var(--border);
+
+    font-size: 23px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.campaign-node.unlocked .node-icon {
+
+    background: var(--sage);
+
+    border-color: var(--sage);
+
+}
+
+
+.campaign-node.unlocked:hover .node-icon {
+
+    transform: scale(1.06);
+
+}
+
+
+/* =========================================
+   NODE CONTENT
+========================================= */
+
+.node-content {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+.node-content h2 {
+
+    margin: 0 0 8px;
+
+    font-size: 1.35rem;
+
+}
+
+
+.node-content p {
+
+    margin: 0 0 12px;
+
+    color: var(--text-secondary);
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   NODE STATUS
+========================================= */
+
+.node-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 5px 12px;
+
+    border-radius: 999px;
+
+    background: var(--bg-soft);
+
+    color: var(--text-secondary);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+    text-transform: uppercase;
+
+}
+
+
+.campaign-node.unlocked .node-status {
+
+    color: #6B9270;
+
+}
+
+
+/* =========================================
+   NODE BUTTON
+========================================= */
+
+.zone-button {
+
+    flex-shrink: 0;
+
+    min-width: 145px;
+
+}
+
+
+.campaign-node.locked .zone-button {
+
+    opacity: 0.65;
+
+}
+
+
+/* =========================================
+   PATH CONNECTOR
+========================================= */
+
+.path-line {
+
+    width: 3px;
+
+    height: 42px;
+
+    margin: 0 auto;
+
+    background: var(--border);
+
+    border-radius: 999px;
+
+}
+
+
+/* =========================================
+   COMPLETED PATH
+========================================= */
+
+.campaign-node.unlocked+.path-line {
+
+    background: var(--sage);
+
+}
+
+
+/* =========================================
+   MAP SPACING
+========================================= */
+
+.campaign-path>.campaign-node {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .map-header {
+
+        margin-bottom: 30px;
+
+    }
+
+
+    .map-title {
+
+        font-size: 2.2rem;
+
+    }
+
+
+    .campaign-node {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        text-align: left;
+
+        padding: 24px;
+
+    }
+
+
+    .node-icon {
+
+        width: 54px;
+        height: 54px;
+
+    }
+
+
+    .zone-button {
+
+        width: 100%;
+
+    }
+
+
+    .path-line {
+
+        height: 30px;
+
+    }
+
+}

@@ -1,0 +1,345 @@
+/* =========================================
+   CODEBENCH // LANDING PAGE
+========================================= */
+
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding:
+        var(--space-xl) var(--space-lg);
+
+    text-align: center;
+
+}
+
+
+
+.hero-content {
+
+    max-width: 760px;
+
+    margin: 0 auto;
+
+}
+
+
+
+.panel-label {
+
+    display: inline-block;
+
+    margin-bottom: var(--space-md);
+
+    padding:
+        8px 18px;
+
+    background: var(--bg-soft);
+
+    border: 1px solid var(--border);
+
+    border-radius: 999px;
+
+    color: var(--rose);
+
+    font-weight: 600;
+
+    letter-spacing: .08em;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.hero h1 {
+
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+
+    line-height: 1.1;
+
+    margin-bottom: var(--space-md);
+
+}
+
+
+
+.hero-description {
+
+    max-width: 620px;
+
+    margin:
+        0 auto var(--space-lg);
+
+    font-size: 1.1rem;
+
+}
+
+
+
+.hero-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: var(--space-sm);
+
+    flex-wrap: wrap;
+
+}
+
+
+
+
+
+/* =========================================
+   FEATURES
+========================================= */
+
+.features {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding:
+        var(--space-xl) var(--space-lg);
+
+}
+
+
+
+.features h2 {
+
+    text-align: center;
+
+    margin-bottom: var(--space-xl);
+
+}
+
+
+
+.feature-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: var(--space-md);
+
+}
+
+
+
+.feature-card {
+
+    text-align: center;
+
+    padding: var(--space-lg);
+
+}
+
+
+
+.feature-card h3 {
+
+    margin-bottom: var(--space-sm);
+
+}
+
+
+
+
+
+/* =========================================
+   HOW IT WORKS
+========================================= */
+
+.how-it-works {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding:
+        var(--space-xl) var(--space-lg);
+
+}
+
+
+
+.how-it-works h2 {
+
+    text-align: center;
+
+    margin-bottom: var(--space-xl);
+
+}
+
+
+
+.steps-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: var(--space-md);
+
+}
+
+
+
+.step-card {
+
+    background: var(--bg-surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-large);
+
+    padding: var(--space-lg);
+
+    box-shadow: var(--shadow-soft);
+
+    text-align: center;
+
+}
+
+
+
+.step-number {
+
+    width: 52px;
+
+    height: 52px;
+
+    margin: 0 auto var(--space-md);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--rose);
+
+    color: white;
+
+    font-weight: 700;
+
+}
+
+
+
+
+
+/* =========================================
+   CALL TO ACTION
+========================================= */
+
+.cta-section {
+
+    padding:
+        var(--space-xl) var(--space-lg);
+
+}
+
+
+
+.cta-card {
+
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding: var(--space-xl);
+
+    text-align: center;
+
+}
+
+
+
+.cta-card h2 {
+
+    margin-bottom: var(--space-sm);
+
+}
+
+
+
+.cta-card p {
+
+    margin-bottom: var(--space-lg);
+
+}
+
+
+
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+
+    padding:
+        var(--space-lg);
+
+    text-align: center;
+
+    color: var(--text-secondary);
+
+    border-top: 1px solid var(--border);
+
+    margin-top: var(--space-xl);
+
+}
+
+
+
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+
+        padding:
+            var(--space-lg);
+
+    }
+
+    .hero h1 {
+
+        font-size: 2.7rem;
+
+    }
+
+    .hero-actions {
+
+        flex-direction: column;
+
+        align-items: center;
+
+    }
+
+}
