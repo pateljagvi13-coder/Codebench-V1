@@ -5,6 +5,12 @@
 import { initializeApp } from
     "https://www.gstatic.com/firebasejs/11.0.0/firebase-app.js";
 
+import {
+    initializeAppCheck,
+    ReCaptchaEnterpriseProvider
+} from
+    "https://www.gstatic.com/firebasejs/11.0.0/firebase-app-check.js";
+
 const firebaseConfig = {
 
     apiKey: "AIzaSyDGCV40J72RQia137UKusm_YkNMnpjHbbw",
@@ -29,4 +35,26 @@ const firebaseConfig = {
 const app =
     initializeApp(firebaseConfig);
 
-export { app };
+
+// =====================================
+// FIREBASE APP CHECK
+// =====================================
+
+const appCheck =
+    initializeAppCheck(app, {
+
+        provider:
+            new ReCaptchaEnterpriseProvider(
+                "6LfqYJMtAAAAAJkBcZDicUdzVzJyy5ROKaJUi9_4"
+            ),
+
+        isTokenAutoRefreshEnabled: true
+
+    });
+
+
+// =====================================
+// EXPORT
+// =====================================
+
+export { app, appCheck };
